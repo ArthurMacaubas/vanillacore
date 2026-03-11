@@ -1,0 +1,131 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap");
+
+.container {
+    font-family: "Quicksand", sans-serif;
+    width: 100%;
+    min-height: 100vh;
+    padding: 40px 5%;
+    background: linear-gradient(135deg, #fdfdfd, #f3f8ff);
+    display: flex;
+    flex-direction: column;
+}
+
+/* HEADER */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 28px;
+}
+
+.header h1 {
+    font-size: 2.1rem;
+    font-weight: 700;
+    color: #333;
+}
+
+.subtitle {
+    font-size: 0.96rem;
+    color: #666;
+    margin-top: 4px;
+}
+
+/* BOTÃO SAIR */
+.btnLogout {
+    padding: 9px 18px;
+    background: #c41e3a;
+    color: #fff;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: background-color 0.2s ease, transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.btnLogout:hover {
+    background: #a01730;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(196, 30, 58, 0.3);
+}
+
+/* MÉTRICAS */
+.metricsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin-bottom: 28px;
+}
+
+.metricCard {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 16px 18px;
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+    border: 1px solid #eef0f7;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.metricLabel {
+    font-size: 0.86rem;
+    color: #777;
+}
+
+.metricValue {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #1f2933;
+}
+
+.metricTag {
+    font-size: 0.8rem;
+    color: #16a34a;
+}
+
+/* PAINÉIS */
+.panelsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 18px;
+}
+
+.panel {
+    background: rgba(255, 255, 255, 0.96);
+    border-radius: 16px;
+    padding: 18px 20px;
+    box-shadow: 0 8px 22px rgba(15, 23, 42, 0.05);
+    border: 1px solid #eef0f7;
+}
+
+.panel h2 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #c41e3a;
+    margin-bottom: 8px;
+}
+
+.panel p {
+    font-size: 0.94rem;
+    color: #555;
+}
+
+/* RESPONSIVO */
+@media (max-width: 700px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .header h1 {
+        font-size: 1.7rem;
+    }
+
+    .btnLogout {
+        align-self: stretch;
+        text-align: center;
+    }
+}

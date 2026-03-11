@@ -1,0 +1,524 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap");
+
+/* ─── CONTAINER ──────────────────────────────────── */
+.container {
+  font-family: "DM Sans", sans-serif;
+  color: #1a1410;
+  min-height: 100vh;
+  background: #faf8f4;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ─── HERO ───────────────────────────────────────── */
+.heroSection {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  margin-top: -62px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  object-fit: cover;
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    160deg,
+    rgba(10, 8, 6, 0.55) 0%,
+    rgba(10, 8, 6, 0.75) 100%
+  );
+  z-index: 1;
+}
+
+/* grain texture */
+.heroOverlay::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: #faf8f4;
+  padding: 2rem;
+  max-width: 760px;
+  animation: heroFadeIn 1s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+  animation-delay: 0.2s;
+}
+
+@keyframes heroFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.heroEyebrow {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(250, 248, 244, 0.5);
+  margin-bottom: 16px;
+}
+
+.heroContent h1 {
+  font-family: "DM Serif Display", serif;
+  font-size: clamp(2.6rem, 6vw, 4.8rem);
+  font-weight: 400;
+  line-height: 1.08;
+  margin-bottom: 20px;
+  letter-spacing: -1px;
+}
+
+.heroContent h1 em {
+  font-style: italic;
+  color: #e8304a;
+}
+
+.heroContent p {
+  font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+  color: rgba(250, 248, 244, 0.65);
+  margin-bottom: 36px;
+  font-weight: 300;
+  letter-spacing: 0.2px;
+}
+
+.heroActions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #c41e3a;
+  color: #faf8f4;
+  padding: 14px 32px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.92rem;
+  letter-spacing: 0.1px;
+  transition: all 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+  box-shadow: 0 8px 24px rgba(196, 30, 58, 0.35);
+}
+
+.ctaButton:hover {
+  background: #a8172f;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(196, 30, 58, 0.45);
+}
+
+.botaoLogin {
+  display: inline-flex;
+  align-items: center;
+  padding: 13px 28px;
+  border-radius: 999px;
+  border: 1px solid rgba(250, 248, 244, 0.25);
+  color: rgba(250, 248, 244, 0.8);
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 0.92rem;
+  letter-spacing: 0.1px;
+  transition: all 0.3s ease;
+}
+
+.botaoLogin:hover {
+  border-color: rgba(250, 248, 244, 0.5);
+  color: #faf8f4;
+  background: rgba(255, 255, 255, 0.06);
+  transform: translateY(-2px);
+}
+
+/* scroll hint */
+.scrollHint {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  color: rgba(250, 248, 244, 0.35);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  animation: bounce 2.4s ease-in-out infinite;
+}
+
+.scrollHint::after {
+  content: "";
+  display: block;
+  width: 1px;
+  height: 36px;
+  background: linear-gradient(to bottom, rgba(250, 248, 244, 0.3), transparent);
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(6px);
+  }
+}
+
+/* ─── PRODUCTS SECTION ───────────────────────────── */
+.content {
+  padding: 80px 6% 100px;
+}
+
+.sectionHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 52px;
+  gap: 12px;
+}
+
+.sectionEyebrow {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #c41e3a;
+}
+
+.sectionTitle {
+  font-family: "DM Serif Display", serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 400;
+  color: #1a1410;
+  letter-spacing: -0.5px;
+  line-height: 1.1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.sectionTitle em {
+  font-style: italic;
+  color: #c41e3a;
+}
+
+/* ─── ROTATING CHIP (RotatingText wrapper) ───────── */
+.rotatingChip {
+  display: inline-flex !important;
+  align-items: center;
+  font-style: italic;
+  color: #c41e3a;
+  background: rgba(196, 30, 58, 0.07);
+  border: 1px solid rgba(196, 30, 58, 0.18);
+  padding: 2px 20px 4px;
+  border-radius: 999px;
+  vertical-align: middle;
+  overflow: hidden;
+  line-height: inherit;
+  min-width: 140px;
+  justify-content: center;
+}
+
+.rotatingWord {
+  overflow: hidden;
+  padding-bottom: 2px;
+}
+
+/* ─── GRID ───────────────────────────────────────── */
+.productsGrid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr 1fr;
+  grid-template-rows: auto;
+  gap: 20px;
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+/* primeiro card ocupa toda a altura das duas colunas ao lado */
+.productsGrid .card:first-child {
+  grid-row: span 1;
+}
+
+/* ─── CARD ANIMATE ───────────────────────────────── */
+.cardHidden {
+  opacity: 0;
+  transform: translateY(32px);
+}
+
+.cardVisible {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 0.6s cubic-bezier(0.22, 0.61, 0.36, 1),
+    transform 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+/* ─── CARD BASE ──────────────────────────────────── */
+.card {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  cursor: pointer;
+  min-height: 420px;
+  transition:
+    transform 0.4s cubic-bezier(0.22, 0.61, 0.36, 1),
+    box-shadow 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+  box-shadow: 0 8px 28px rgba(26, 20, 16, 0.1);
+}
+
+.card:hover,
+.card:focus-visible {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 24px 56px rgba(26, 20, 16, 0.18);
+  outline: none;
+}
+
+/* ─── IMAGE FILLS ENTIRE CARD ────────────────────── */
+.imgWrapper {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.productImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.card:hover .productImage {
+  transform: scale(1.08);
+}
+
+/* ─── GRADIENT OVERLAYS ──────────────────────────── */
+/* base dark gradient always visible */
+.imgWrapper::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(10, 8, 6, 0.88) 0%,
+    rgba(10, 8, 6, 0.3) 45%,
+    rgba(10, 8, 6, 0.05) 100%
+  );
+  transition: opacity 0.4s ease;
+}
+
+/* red accent glow on hover */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(196, 30, 58, 0.18) 0%,
+    transparent 60%
+  );
+  opacity: 0;
+  z-index: 1;
+  transition: opacity 0.4s ease;
+  border-radius: 24px;
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+/* ─── TEXT CONTENT (over image) ──────────────────── */
+.productTextCard {
+  position: relative;
+  z-index: 2;
+  margin-top: auto;
+  padding: 28px 28px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: #faf8f4;
+}
+
+.cardIndex {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(250, 248, 244, 0.45);
+  margin-bottom: 2px;
+}
+
+.productTextCard h3 {
+  font-family: "DM Serif Display", serif;
+  font-size: 2rem;
+  font-weight: 400;
+  color: #faf8f4;
+  letter-spacing: -0.3px;
+  line-height: 1;
+}
+
+/* tags row */
+.featuresList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.featuresList li {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: rgba(250, 248, 244, 0.75);
+  background: rgba(250, 248, 244, 0.1);
+  border: 1px solid rgba(250, 248, 244, 0.14);
+  padding: 4px 12px;
+  border-radius: 999px;
+  backdrop-filter: blur(4px);
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.card:hover .featuresList li {
+  background: rgba(196, 30, 58, 0.25);
+  border-color: rgba(196, 30, 58, 0.3);
+  color: #faf8f4;
+}
+
+/* bottom row: cta */
+.cardFooterRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 6px;
+}
+
+.cardCta {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: rgba(250, 248, 244, 0.55);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition:
+    color 0.25s ease,
+    gap 0.25s ease;
+}
+
+.card:hover .cardCta {
+  color: #faf8f4;
+  gap: 10px;
+}
+
+.cardCta::after {
+  content: "→";
+  font-size: 0.9rem;
+}
+
+/* arrow circle button */
+.cardArrow {
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  border: 1px solid rgba(250, 248, 244, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(250, 248, 244, 0.55);
+  font-size: 1rem;
+  transition: all 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+  flex-shrink: 0;
+}
+
+.card:hover .cardArrow {
+  background: #c41e3a;
+  border-color: #c41e3a;
+  color: #faf8f4;
+  transform: rotate(-45deg);
+  box-shadow: 0 4px 16px rgba(196, 30, 58, 0.4);
+}
+
+/* ─── RESPONSIVE ─────────────────────────────────── */
+@media (max-width: 900px) {
+  .productsGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .productsGrid .card:first-child {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 768px) {
+  .heroSection {
+    height: 100svh;
+  }
+
+  .heroContent h1 {
+    letter-spacing: -0.5px;
+  }
+
+  .content {
+    padding: 60px 5% 80px;
+  }
+
+  .productsGrid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .productsGrid .card:first-child {
+    grid-column: span 1;
+  }
+
+  .card {
+    min-height: 340px;
+  }
+
+  .botaoLogin {
+    display: inline-flex;
+  }
+}

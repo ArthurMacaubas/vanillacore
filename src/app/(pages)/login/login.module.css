@@ -1,0 +1,160 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap");
+
+/* CONTAINER GERAL */
+.loginContainer {
+  font-family: "Quicksand", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+  background: linear-gradient(135deg, #f8fbff, #f7eefb);
+}
+
+/* CAIXA DO LOGIN */
+.loginBox {
+  width: 420px;
+  padding: 34px;
+  border-radius: 18px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.9),
+    rgba(255, 255, 255, 0.78)
+  );
+  box-shadow: 0 20px 40px rgba(16, 24, 40, 0.08);
+  text-align: center;
+  position: relative;
+}
+
+/* VOLTAR */
+.backArrow {
+  position: absolute;
+  left: 18px;
+  top: 16px;
+  color: #c41e3a;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+/* TÍTULOS */
+.title {
+  font-size: 28px;
+  color: #c41e3a;
+  margin-bottom: 4px;
+  font-weight: 800;
+}
+
+.subtitle {
+  color: #555;
+  margin-bottom: 20px;
+  font-size: 0.98rem;
+}
+
+/* FORMULÁRIO */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: left;
+}
+
+.label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #444;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* CAMPOS */
+.input {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #e6e6e9;
+  background: #fff;
+  font-size: 15px;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.input:focus {
+  outline: none;
+  box-shadow: 0 6px 18px rgba(196, 30, 58, 0.06);
+  border-color: #c41e3a;
+}
+
+/* LINKS AUXILIARES */
+.linksRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2px;
+}
+
+.registerLink {
+  font-size: 0.95rem;
+  color: #666;
+  text-decoration: none;
+}
+
+.forgotLink {
+  font-size: 0.92rem;
+  color: #c41e3a;
+  text-decoration: none;
+}
+
+.registerLink:hover,
+.forgotLink:hover {
+  text-decoration: underline;
+  opacity: 0.9;
+}
+
+/* BOTÃO PRINCIPAL */
+.loginButton {
+  margin-top: 10px;
+  padding: 12px;
+  border-radius: 12px;
+  border: none;
+  background: #c41e3a;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.98rem;
+  cursor: pointer;
+  transition: background-color 0.18s ease, transform 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+.loginButton:hover:not(:disabled) {
+  background: #a31832;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(196, 30, 58, 0.35);
+}
+
+.loginButton:disabled {
+  background: #b8b8c2;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* ERRO */
+.errorMessage {
+  background: #fff1f2;
+  border-left: 4px solid #c41e3a;
+  padding: 8px 10px;
+  border-radius: 8px;
+  color: #9b1220;
+  font-size: 0.86rem;
+}
+
+/* MOBILE */
+@media (max-width: 500px) {
+  .loginBox {
+    width: 95%;
+    padding: 22px;
+  }
+
+  .title {
+    font-size: 22px;
+  }
+}

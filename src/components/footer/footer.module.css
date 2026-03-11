@@ -1,0 +1,205 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap");
+
+/* ─── FOOTER SHELL ───────────────────────────────── */
+.footer {
+  background: #1a1410;
+  font-family: "DM Sans", sans-serif;
+  color: rgba(250, 248, 244, 0.55);
+  padding: 64px 6% 0;
+}
+
+/* ─── INNER GRID ─────────────────────────────────── */
+.inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 48px;
+  padding-bottom: 52px;
+  border-bottom: 1px solid rgba(250, 248, 244, 0.07);
+}
+
+/* ─── BRAND COL ──────────────────────────────────── */
+.colBrand {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.logo {
+  font-family: "DM Serif Display", serif;
+  font-size: 1.7rem;
+  font-weight: 400;
+  font-style: italic;
+  color: #faf8f4;
+  letter-spacing: -0.3px;
+  line-height: 1;
+}
+
+.logo span {
+  color: #c41e3a;
+}
+
+.description {
+  font-size: 0.86rem;
+  color: rgba(250, 248, 244, 0.45);
+  line-height: 1.65;
+  max-width: 220px;
+  font-weight: 300;
+}
+
+/* ─── SOCIAL ─────────────────────────────────────── */
+.socialRow {
+  display: flex;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.socialBtn {
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  border: 1px solid rgba(250, 248, 244, 0.1);
+  background: rgba(250, 248, 244, 0.04);
+  color: rgba(250, 248, 244, 0.45);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: all 0.22s ease;
+}
+
+.socialBtn:hover {
+  background: rgba(196, 30, 58, 0.2);
+  border-color: rgba(196, 30, 58, 0.4);
+  color: #faf8f4;
+  transform: translateY(-2px);
+}
+
+/* ─── REGULAR COLS ───────────────────────────────── */
+.col {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.colTitle {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(250, 248, 244, 0.3);
+}
+
+.col ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.col ul li {
+  font-size: 0.875rem;
+  color: rgba(250, 248, 244, 0.55);
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  line-height: 1.4;
+}
+
+.col ul li a {
+  text-decoration: none;
+  color: rgba(250, 248, 244, 0.55);
+  transition: color 0.2s ease;
+}
+
+.col ul li a:hover {
+  color: #faf8f4;
+}
+
+.colIcon {
+  flex-shrink: 0;
+  opacity: 0.4;
+}
+
+/* ─── BOTTOM BAR ─────────────────────────────────── */
+.bottom {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 20px 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.bottomCopy {
+  font-size: 0.78rem;
+  color: rgba(250, 248, 244, 0.25);
+}
+
+.bottomLinks {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.bottomLinks a {
+  font-size: 0.78rem;
+  color: rgba(250, 248, 244, 0.25);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.bottomLinks a:hover {
+  color: rgba(250, 248, 244, 0.6);
+}
+
+.bottomDot {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: rgba(250, 248, 244, 0.15);
+  flex-shrink: 0;
+}
+
+/* ─── RESPONSIVE ─────────────────────────────────── */
+@media (max-width: 960px) {
+  .inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 36px;
+  }
+
+  .colBrand {
+    grid-column: span 2;
+  }
+
+  .description {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer {
+    padding: 48px 6% 0;
+  }
+
+  .inner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .colBrand {
+    grid-column: span 1;
+  }
+
+  .bottom {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+  }
+}

@@ -1,0 +1,326 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&family=JetBrains+Mono:wght@500;700&display=swap");
+
+/* === GERAL === */
+.container {
+  font-family: "Quicksand", sans-serif;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f9f9f9;
+}
+
+/* === MAIN DO CARRINHO === */
+.cartContainer {
+  flex: 1;
+  padding: 2rem;
+  max-width: 900px;
+  margin: 2rem auto;
+  width: 100%;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.cartContainer h1 {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-weight: 700;
+}
+
+.cartTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 2rem;
+}
+
+.cartTable th {
+  background: #f1f1f1;
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  color: #555;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.cartTable td {
+  padding: 1.5rem 1rem;
+  border-bottom: 1px solid #eee;
+  vertical-align: middle;
+}
+
+.cartTable tr:last-child td {
+  border-bottom: none;
+}
+
+.itemBox {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  background: #c41e3a;
+  border-radius: 8px;
+  margin-right: 1rem;
+  vertical-align: middle;
+}
+
+.price {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.quantityControl {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.quantityInput {
+  width: 60px;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  text-align: center;
+  font-family: "Quicksand", sans-serif;
+  font-size: 1rem;
+}
+
+.removeButton {
+  background: #dc3545;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.removeButton:hover {
+  background: #c82333;
+  transform: scale(1.05);
+}
+
+/* === RODAPÉ DO CARRINHO === */
+.cartFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1.5rem;
+  border-top: 2px solid #eee;
+}
+
+.finalizarButton {
+  background: #28a745;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.finalizarButton:hover {
+  background: #218838;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(40, 167, 69, 0.3);
+}
+
+.total {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #c41e3a;
+  font-family: "JetBrains Mono", monospace;
+}
+
+/* === ESTADO VAZIO === */
+.emptyCart {
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+.emptyCart h2 {
+  font-size: 1.8rem;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+.emptyCart p {
+  color: #777;
+  margin-bottom: 2rem;
+}
+
+.shopButton {
+  display: inline-block;
+  background: #c41e3a;
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.shopButton:hover {
+  background: #a01730;
+  transform: translateY(-3px);
+}
+
+/* === RESPONSIVIDADE === */
+@media (max-width: 768px) {
+  .cartContainer {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+
+  .cartTable {
+    font-size: 0.9rem;
+  }
+
+  .cartTable th,
+  .cartTable td {
+    padding: 1rem 0.5rem;
+  }
+
+  .itemBox {
+    width: 40px;
+    height: 40px;
+  }
+
+  .cartFooter {
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+  }
+}
+
+/* === MODAL DE PAGAMENTO === */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+  box-shadow: 0 4px 25px rgba(0,0,0,0.2);
+}
+
+.closeBtn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #eee;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+/* opções PIX / Dinheiro */
+.pagamentosContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.pagamentoBox {
+  cursor: pointer;
+  text-align: center;
+  padding: 1rem;
+  width: 180px;
+  background: #f9f9f9;
+  border-radius: 10px;
+  border: 2px solid #ddd;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.pagamentoBox img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+}
+
+.pagamentoBox p {
+  font-family: "Quicksand", sans-serif;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+.pagamentoBox:hover {
+  transform: translateY(-3px);
+  border-color: #c41e3a;
+  box-shadow: 0 4px 10px rgba(196,30,58,0.2);
+}
+
+/* detalhes do PIX / Dinheiro */
+.detalhesPagamento {
+  text-align: center;
+  margin-top: 1.5rem;
+  background: #fafafa;
+  padding: 1.5rem;
+  border-radius: 10px;
+  border: 1px solid #e5e5e5;
+}
+
+.detalhesPagamento h3 {
+  margin-bottom: 1rem;
+  font-family: "JetBrains Mono", monospace;
+  color: #333;
+}
+
+.detalhesPagamento p {
+  margin-bottom: 0.5rem;
+  color: #555;
+  font-weight: 500;
+}
+
+.detalhesPagamento img {
+  margin: 0 auto 1rem auto;
+  display: block;
+  border-radius: 8px;
+}
+
+.btn {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background: #28a745;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-block;
+  text-decoration: none;
+  font-family: "Quicksand", sans-serif;
+}
+
+.btn:hover {
+  background: #218838;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(40,167,69,0.3);
+}

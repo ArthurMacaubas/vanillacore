@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GellatoItali - Produtos</title>
+  <link rel="stylesheet" href="header.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <a href="#" class="logo">GellatoItali</a>
+        <nav>
+            <a href="../index.html" class="nav-link">Início</a>
+            <a href="sorvete/sorvete_teste.html" class="nav-link">Sorvetes</a>
+            <a href="tela de picole/picole.html" class="nav-link">Picoles</a>
+            <a href="tela acai/index.html" class="nav-link">Açaís</a>
+        </nav>
+        <div class="header-action">
+            <a href="login/index.html" class="cta-button">Login</a>
+        </div>
+    </header>
+
+
+  <section class="acoes">
+    <button class="adicionar open-btn" onclick="abrirCadastro()">Adicionar produto</button>
+    <button class="editar open-btn" onclick="abrirEditar()">Editar produtos</button>
+    <button class="excluir open-btn" onclick="abrirExcluir()">Excluir produtos</button>
+
+    <div class="overlay" id="overlay">
+      <div class="mini-tela" id="mini-tela">
+        <h2 id="titulo-tela">Cadastro</h2>
+
+        <div id="form-editar">
+
+          <div class="campo">
+            <label for="Produto">Produto:</label>
+            <select id="Produto" name="Produto" required>
+              <option value="">Selecione</option>
+              <option value="sorvete">Sorvete</option>
+              <option value="picole">Picolé</option>
+              <option value="milkshake">Milkshake</option>
+            </select>
+          </div>
+
+          <div class="campo">
+            <label for="Sabor">Sabor:</label>
+            <select id="Sabor" name="Sabor" required>
+              <option value="">Selecione</option>
+              <option value="Chocolate">Chocolate</option>
+              <option value="Morango">Morango</option>
+              <option value="Napolitano">Napolitano</option>
+            </select>
+          </div>
+
+          <div class="campo">
+            <label for="Marca">Marca:</label>
+            <select id="Marca" name="Marca" required>
+              <option value="">Selecione</option>
+              <option value="Kibom">Kibom</option>
+              <option value="Eskimo">Eskimo</option>
+              <option value="Nestle">Nestle</option>
+            </select>
+          </div>
+
+          <div class="campo">
+            <label for="Tamanho">Tamanho:</label>
+            <select id="Tamanho" name="Tamanho" required>
+              <option value="">Selecione</option>
+              <option value="1Litro">1 Litro</option>
+              <option value="1,5Litros">1,5 Litros</option>
+              <option value="2Litros">2 Litros</option>
+            </select>
+          </div>
+
+          <div class="botoes">
+            <button class="salvar" onclick="salvar()">Salvar</button>
+            <button class="cancelar" onclick="fechar()">Cancelar</button>
+          </div>
+        </div>
+
+        <div id="form-cadastro">
+
+          <div class="campo">
+            <label for="Produto">Produto:</label>
+            <select id="Produto" name="Produto" required>
+              <option value="">Selecione</option>
+              <option value="sorvete">Sorvete</option>
+              <option value="picole">Picolé</option>
+              <option value="milkshake">Milkshake</option>
+            </select>
+          </div>
+
+          <div class="campo">
+
+            <label for="Sabor">Sabor:</label>
+            <select id="Sabor" name="Sabor" required>
+              <option value="">Selecione</option>
+              <option value="Chocolate">Chocolate</option>
+              <option value="Morango">Morango</option>
+              <option value="Napolitano">Napolitano</option>
+            </select>
+          </div>
+
+          <div class="campo">
+            <label for="Marca">Marca:</label>
+            <select id="Marca" name="Marca" required>
+              <option value="">Selecione</option>
+              <option value="Kibom">Kibom</option>
+              <option value="Eskimo">Eskimo</option>
+              <option value="Nestle">Nestle</option>
+            </select>
+          </div>
+
+          <div class="campo">
+            <label for="Tamanho">Tamanho:</label>
+            <select id="Tamanho" name="Tamanho" required>
+              <option value="">Selecione</option>
+              <option value="1Litro">1 Litro</option>
+              <option value="1,5Litros">1,5 Litros</option>
+              <option value="2Litros">2 Litros</option>
+            </select>
+          </div>
+
+          <div class="botoes">
+            <button class="salvar" onclick="salvar()">Salvar</button>
+            <button class="cancelar" onclick="fechar()">Cancelar</button>
+          </div>
+        </div>
+
+        <div id="detalhes-produto" style="display:none; text-align:left;">
+          <p><strong>Produto:</strong> <span id="det-produto"></span></p>
+          <p><strong>Sabor:</strong> <span id="det-sabor"></span></p>
+          <p><strong>Marca:</strong> <span id="det-marca"></span></p>
+          <p><strong>Tamanho:</strong> <span id="det-tamanho"></span></p>
+          <div class="botoes">
+            <button class="cancelar" onclick="fechar()">Fechar</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <main class="produtos">
+
+    <div class="card" data-produto="Sorvete" data-sabor="Chocolate" data-marca="Kibom" data-tamanho="1Litro">
+      <img src="img1.png" alt="Produto 1">
+      <h3>Produto 1</h3>
+      <p>Qt: 10</p>
+      <div class="card-botoes">
+        <button onclick="detalhes(this)">Detalhes</button>
+        <button onclick="editarCard(this)">Editar</button>
+        <button onclick="abrirExcluir(this)">Excluir</button>
+      </div>
+    </div>
+
+    <div class="card" data-produto="Picolé" data-sabor="Morango" data-marca="Eskimo" data-tamanho="1,5Litros">
+      <img src="img1.png" alt="Produto 2">
+      <h3>Produto 2</h3>
+      <p>Qt: 0</p>
+      <div class="card-botoes">
+        <button onclick="detalhes(this)">Detalhes</button>
+        <button onclick="editarCard(this)">Editar</button>
+        <button onclick="abrirExcluir(this)">Excluir</button>
+      </div>
+    </div>
+
+    <div class="card" data-produto="Milkshake" data-sabor="Napolitano" data-marca="Nestle" data-tamanho="2Litros">
+      <img src="img1.png" alt="Produto 3">
+      <h3>Produto 3</h3>
+      <p>Qt: 0</p>
+      <div class="card-botoes">
+        <button onclick="detalhes(this)">Detalhes</button>
+        <button onclick="editarCard(this)">Editar</button>
+        <button onclick="abrirExcluir(this)">Excluir</button>
+      </div>
+    </div>
+
+    <div class="card" data-produto="Milkshake" data-sabor="Napolitano" data-marca="Nestle" data-tamanho="2Litros">
+      <img src="img1.png" alt="Produto 4">
+      <h3>Produto 4</h3>
+      <p>Qt: 0</p>
+      <div class="card-botoes">
+        <button onclick="detalhes(this)">Detalhes</button>
+        <button onclick="editarCard(this)">Editar</button>
+        <button onclick="abrirExcluir(this)">Excluir</button>
+      </div>
+    </div>
+
+    <div class="card" data-produto="Milkshake" data-sabor="Napolitano" data-marca="Nestle" data-tamanho="2Litros">
+      <img src="img1.png" alt="Produto 5">
+      <h3>Produto 5</h3>
+      <p>Qt: 0</p>
+      <div class="card-botoes">
+        <button onclick="detalhes(this)">Detalhes</button>
+        <button onclick="editarCard(this)">Editar</button>
+        <button onclick="abrirExcluir(this)">Excluir</button>
+      </div>
+    </div>
+
+    <div class="card" data-produto="Sorvete" data-sabor="Chocolate" data-marca="Kibom" data-tamanho="1Litro">
+      <img src="img1.png" alt="Produto 6">
+      <h3>Produto 6</h3>
+      <p>Qt: 0</p>
+      <div class="card-botoes">
+        <button onclick="detalhes(this)">Detalhes</button>
+        <button onclick="editarCard(this)">Editar</button>
+        <button onclick="abrirExcluir(this)">Excluir</button>
+      </div>
+    </div>
+
+    <div class="card" data-produto="Picolé" data-sabor="Morango" data-marca="Eskimo" data-tamanho="1,5Litros">
+      <img src="img1.png" alt="Produto 7">
+      <h3>Produto 7</h3>
+      <p>Qt: 0</p>
+      <div class="card-botoes">
+        <button onclick="detalhes(this)">Detalhes</button>
+        <button onclick="editarCard(this)">Editar</button>
+        <button onclick="abrirExcluir(this)">Excluir</button>
+      </div>
+    </div>
+
+    <div class="card" data-produto="Milkshake" data-sabor="Napolitano" data-marca="Nestle" data-tamanho="2Litros">
+      <img src="img1.png" alt="Produto 8">
+      <h3>Produto 8</h3>
+      <p>Qt: 0</p>
+      <div class="card-botoes">
+        <button onclick="detalhes(this)">Detalhes</button>
+        <button onclick="editarCard(this)">Editar</button>
+        <button onclick="abrirExcluir(this)">Excluir</button>
+      </div>
+    </div>
+
+    <div class="card" data-produto="Milkshake" data-sabor="Napolitano" data-marca="Nestle" data-tamanho="2Litros">
+      <img src="img1.png" alt="Produto 9">
+      <h3>Produto 9</h3>
+      <p>Qt: 0</p>
+      <div class="card-botoes">
+        <button onclick="detalhes(this)">Detalhes</button>
+        <button onclick="editarCard(this)">Editar</button>
+        <button onclick="abrirExcluir(this)">Excluir</button>
+      </div>
+    </div>
+
+    <div class="card" data-produto="Milkshake" data-sabor="Napolitano" data-marca="Nestle" data-tamanho="2Litros">
+      <img src="img1.png" alt="Produto 10">
+      <h3>Produto 10</h3>
+      <p>Qt: 0</p>
+      <div class="card-botoes">
+        <button onclick="detalhes(this)">Detalhes</button>
+        <button onclick="editarCard(this)">Editar</button>
+        <button onclick="abrirExcluir(this)">Excluir</button>
+      </div>
+    </div>
+
+    <div class="card" data-produto="Milkshake" data-sabor="Napolitano" data-marca="Nestle" data-tamanho="2Litros">
+      <img src="img1.png" alt="Produto 11">
+      <h3>Produto 11</h3>
+      <p>Qt: 0</p>
+      <div class="card-botoes">
+        <button onclick="detalhes(this)">Detalhes</button>
+        <button onclick="editarCard(this)">Editar</button>
+        <button onclick="abrirExcluir(this)">Excluir</button>
+      </div>
+    </div>
+
+    <div class="card" data-produto="Milkshake" data-sabor="Napolitano" data-marca="Nestle" data-tamanho="2Litros">
+      <img src="img1.png" alt="Produto 12">
+      <h3>Produto 12</h3>
+      <p>Qt: 0</p>
+      <div class="card-botoes">
+        <button onclick="detalhes(this)">Detalhes</button>
+        <button onclick="editarCard(this)">Editar</button>
+        <button onclick="abrirExcluir(this)">Excluir</button>
+      </div>
+    </div>
+  </main>
+
+      <footer>
+        <div class="footer-content">
+
+            <div class="footer-section navigation">
+                <h4>Navegação</h4>
+                <ul class="footer-links-list">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../sorvete/sorvete_teste.html">Sorvetes</a></li>
+                    <li><a href="../tela de picole/picole.html">Picoles</a></li>
+                    <li><a href="../tela acai/index.html">Açaís</a></li>
+                    <li><a>OUTRAS TELAS</a></li>
+                    <li><a href="../Tela do carrinho/carrinho.html">Carrinho</a></li>
+                    <li><a href="../Tela Monitoramento/index.html">Monitoramento</a></li>
+                    <li><a href="../Tela Pagamento/TelaDePagamento.html">Pagamento</a></li>
+                    <li><a href="../Tela Usuario/telaUsuario.html">Usuarios</a></li>
+                    <li><a href="../cadastro de produtos/Cadastro_de_Produtos.html">Cadastro de Produtos</a></li>
+                    <li><a href="../gestão de produtos funcionarios/gestaoProdutos.html">Gestão de Produtos</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section contact">
+                <h4>Fale Conosco</h4>
+                <ul class="footer-links-list">
+                    <li>Telefone: (00) 1234-5678</li>
+                    <li>Email: contato@gellatoitali.com</li>
+                    <li>Rua do Gelo, 123 - Gelato City</li>
+                </ul>
+            </div>
+
+            <div class="footer-section social">
+                <h4>Siga-nos</h4>
+                <p>Mantenha-se atualizado com nossas promoções!</p>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 GellatoItali. Todos os direitos reservados.</p>
+            <div class="policy-links">
+                <a href="#">Política de Privacidade</a>
+                <span>|</span>
+                <a href="#">Termos de Uso</a>
+            </div>
+        </div>
+
+        <div class="tenor-gif-embed" data-postid="1816292255436153497" data-share-method="host" data-aspect-ratio="1.33155" data-width="100%"><a href="https://tenor.com/view/meme-gif-1816292255436153497">Meme GIF</a>from <a href="https://tenor.com/search/meme-gifs">Meme GIFs</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+    </footer>
+
+  <script>
+    const overlay = document.getElementById("overlay");
+    const miniTela = document.getElementById("mini-tela");
+    const tituloTela = document.getElementById("titulo-tela");
+    const formCadastro = document.getElementById("form-cadastro");
+    const detalhesProduto = document.getElementById("detalhes-produto");
+    const formEditar = document.getElementById("form-editar");
+
+    function abrirCadastro() {
+      tituloTela.innerText = "Cadastro";
+      overlay.style.display = "flex";
+      formCadastro.style.display = "block";
+      formEditar.style.display = "none";
+      detalhesProduto.style.display = "none";
+
+      miniTela.querySelector("#Produto").value = "";
+      miniTela.querySelector("#Sabor").value = "";
+      miniTela.querySelector("#Marca").value = "";
+      miniTela.querySelector("#Tamanho").value = "";
+    }
+
+    function abrirEditar() {
+      tituloTela.innerText = "Editar";
+      overlay.style.display = "flex";
+      formEditar.style.display = "block";
+      formCadastro.style.display = "none";
+      detalhesProduto.style.display = "none";
+
+      miniTela.querySelector("#Produto").value = "";
+      miniTela.querySelector("#Sabor").value = "";
+      miniTela.querySelector("#Marca").value = "";
+      miniTela.querySelector("#Tamanho").value = "";
+    }
+
+    function abrirExcluir() {
+      alert("Função de exclusão ainda não implementada.");
+    }
+
+    function fechar() {
+      overlay.style.display = "none";
+    }
+
+    function salvar() {
+      const produto = document.getElementById("Produto").value;
+      const sabor = document.getElementById("Sabor").value;
+      const marca = document.getElementById("Marca").value;
+      const tamanho = document.getElementById("Tamanho").value;
+
+      if (!produto || !sabor || !marca || !tamanho) {
+        alert("Preencha todos os campos!");
+        return;
+      }
+
+      alert(`Produto "${produto}" salvo com sucesso!`);
+      fechar();
+    }
+
+    function detalhes(botao) {
+      const card = botao.closest(".card");
+      const produto = card.dataset.produto;
+      const sabor = card.dataset.sabor;
+      const marca = card.dataset.marca;
+      const tamanho = card.dataset.tamanho;
+
+      tituloTela.innerText = "Detalhes do Produto";
+      overlay.style.display = "flex";
+
+      formCadastro.style.display = "none";
+      formEditar.style.display = "none";
+      detalhesProduto.style.display = "block";
+
+      document.getElementById("det-produto").innerText = produto;
+      document.getElementById("det-sabor").innerText = sabor;
+      document.getElementById("det-marca").innerText = marca;
+      document.getElementById("det-tamanho").innerText = tamanho;
+    }
+
+    function editarCard(botao) {
+      const card = botao.closest(".card");
+      const produto = card.dataset.produto;
+      const sabor = card.dataset.sabor;
+      const marca = card.dataset.marca;
+      const tamanho = card.dataset.tamanho;
+
+      tituloTela.innerText = "Editar Produto";
+      overlay.style.display = "flex";
+      formCadastro.style.display = "none";
+      formEditar.style.display = "block";
+      detalhesProduto.style.display = "none";
+
+      formEditar.querySelector("#Produto").value = produto;
+      formEditar.querySelector("#Sabor").value = sabor;
+      formEditar.querySelector("#Marca").value = marca;
+      formEditar.querySelector("#Tamanho").value = tamanho;
+    }
+
+  </script>
+</body>
+</html>

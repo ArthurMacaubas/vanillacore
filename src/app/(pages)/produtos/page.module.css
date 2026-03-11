@@ -1,0 +1,442 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap");
+
+/* ─── TOKENS (definidas no .container para compatibilidade com CSS Modules) ── */
+
+/* ─── BASE ───────────────────────────────────────── */
+.container {
+  --cream: #faf8f4;
+  --paper: #ffffff;
+  --ink: #1a1410;
+  --ink-2: #5a4e42;
+  --ink-3: #9b8f82;
+  --red: #c41e3a;
+  --red-dark: #9b1630;
+  --red-glow: rgba(196, 30, 58, 0.18);
+  --green: #16a34a;
+  --border: rgba(26, 20, 16, 0.08);
+  --shadow-sm: 0 2px 8px rgba(26, 20, 16, 0.06);
+  --shadow-md: 0 8px 24px rgba(26, 20, 16, 0.08);
+  --shadow-lg: 0 20px 48px rgba(26, 20, 16, 0.12);
+  --radius: 18px;
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+
+  font-family: "DM Sans", sans-serif;
+  background: var(--cream);
+  min-height: 100vh;
+  padding: 0 0 80px;
+  color: var(--ink);
+}
+
+/* ─── HERO HEADER ────────────────────────────────── */
+.header {
+  position: relative;
+  background: var(--ink);
+  color: var(--cream);
+  padding: 52px 6% 48px;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+}
+
+.header::before {
+  content: "GELATO";
+  position: absolute;
+  font-family: "DM Serif Display", serif;
+  font-size: clamp(80px, 14vw, 180px);
+  font-weight: 400;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.04;
+  white-space: nowrap;
+  pointer-events: none;
+  letter-spacing: -4px;
+}
+
+.header::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 340px;
+  height: 340px;
+  background: radial-gradient(circle at center, var(--red-glow) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.headerLeft h1 {
+  font-family: "DM Serif Display", serif;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 400;
+  letter-spacing: -0.5px;
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+
+.headerLeft h1 em {
+  font-style: italic;
+  color: var(--red);
+}
+
+.subtitle {
+  font-size: 0.88rem;
+  color: rgba(250, 248, 244, 0.5);
+  font-weight: 300;
+  letter-spacing: 0.3px;
+}
+
+/* ─── CART PILL ──────────────────────────────────── */
+.cartSummary {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 18px 10px 14px;
+  border-radius: 999px;
+  background: rgba(250, 248, 244, 0.08);
+  border: 1px solid rgba(250, 248, 244, 0.12);
+  backdrop-filter: blur(8px);
+  font-size: 0.85rem;
+  color: rgba(250, 248, 244, 0.7);
+  font-weight: 400;
+  white-space: nowrap;
+  transition: border-color 0.2s;
+}
+
+.cartSummary:hover {
+  border-color: rgba(250, 248, 244, 0.25);
+}
+
+.cartIcon {
+  font-size: 1rem;
+}
+
+.cartCount {
+  font-family: "DM Serif Display", serif;
+  font-size: 1.2rem;
+  color: var(--cream);
+  line-height: 1;
+}
+
+/* ─── CONTROLS ───────────────────────────────────── */
+.controls {
+  padding: 28px 6% 0;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.searchWrapper {
+  position: relative;
+  flex: 1;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1rem;
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.controls input {
+  width: 100%;
+  padding: 13px 16px 13px 44px;
+  border-radius: 999px;
+  border: 1.5px solid var(--border);
+  background: var(--paper);
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.9rem;
+  color: var(--ink);
+  box-shadow: var(--shadow-sm);
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+}
+
+.controls input::placeholder {
+  color: var(--ink-3);
+}
+
+.controls input:focus {
+  border-color: var(--red);
+  box-shadow: 0 0 0 3px var(--red-glow), var(--shadow-sm);
+}
+
+/* ─── CATEGORY FILTERS ───────────────────────────── */
+.filters {
+  display: flex;
+  gap: 8px;
+  padding: 16px 6% 0;
+  flex-wrap: wrap;
+}
+
+.filterBtn {
+  border: 1.5px solid var(--border);
+  background: var(--paper);
+  color: var(--ink-2);
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  padding: 6px 16px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.18s var(--ease);
+}
+
+.filterBtn:hover {
+  border-color: var(--red);
+  color: var(--red);
+}
+
+.filterActive {
+  background: var(--red);
+  border-color: var(--red);
+  color: #fff;
+}
+
+.filterActive:hover {
+  background: var(--red-dark);
+  border-color: var(--red-dark);
+  color: #fff;
+}
+
+/* ─── RESULTS META ───────────────────────────────── */
+.resultsMeta {
+  padding: 20px 6% 0;
+  font-size: 0.82rem;
+  color: var(--ink-3);
+  font-weight: 400;
+}
+
+/* ─── GRID ───────────────────────────────────────── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 22px;
+  padding: 20px 6% 0;
+}
+
+.emptyText {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 60px 0;
+  font-size: 0.95rem;
+  color: var(--ink-3);
+}
+
+/* ─── CARD ───────────────────────────────────────── */
+.card {
+  background: var(--paper);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.28s var(--ease), box-shadow 0.28s var(--ease);
+  animation: fadeUp 0.45s var(--ease) both;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* ─── IMAGE ──────────────────────────────────────── */
+.imgWrapper {
+  position: relative;
+  overflow: hidden;
+  height: 190px;
+}
+
+.cardImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s var(--ease);
+}
+
+.card:hover .cardImg {
+  transform: scale(1.06);
+}
+
+.categoryBadge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: rgba(26, 20, 16, 0.55);
+  backdrop-filter: blur(6px);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+}
+
+.favButton {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  border: none;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(6px);
+  color: var(--ink-3);
+  font-size: 1rem;
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s var(--ease);
+  box-shadow: var(--shadow-sm);
+}
+
+.favButton:hover {
+  transform: scale(1.1);
+  color: var(--red);
+}
+
+.favActive {
+  background: var(--red);
+  color: #fff;
+}
+
+.favActive:hover {
+  background: var(--red-dark);
+  color: #fff;
+}
+
+/* ─── CARD BODY ──────────────────────────────────── */
+.cardBody {
+  padding: 18px 18px 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 0;
+}
+
+.cardBody h2 {
+  font-family: "DM Serif Display", serif;
+  font-size: 1.18rem;
+  font-weight: 400;
+  color: var(--ink);
+  margin-bottom: 6px;
+  line-height: 1.25;
+}
+
+.cardDesc {
+  font-size: 0.84rem;
+  color: var(--ink-2);
+  line-height: 1.55;
+  margin-bottom: 14px;
+  flex: 1;
+}
+
+.cardFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.cardPriceBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.cardPrice {
+  font-family: "DM Serif Display", serif;
+  font-size: 1.3rem;
+  color: var(--ink);
+  letter-spacing: -0.3px;
+}
+
+.cardStock {
+  font-size: 0.75rem;
+  color: var(--green);
+  font-weight: 500;
+}
+
+.cardStockLow {
+  color: #d97706;
+}
+
+/* ─── ADD TO CART BUTTON ─────────────────────────── */
+.btnAddCart {
+  border: none;
+  border-radius: 999px;
+  padding: 10px 20px;
+  background: var(--ink);
+  color: var(--cream);
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  cursor: pointer;
+  transition: all 0.22s var(--ease);
+  white-space: nowrap;
+}
+
+.btnAddCart:hover {
+  background: var(--red);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px var(--red-glow);
+}
+
+.btnAdded {
+  background: var(--green);
+}
+
+.btnAdded:hover {
+  background: #15803d;
+  box-shadow: 0 6px 20px rgba(22, 163, 74, 0.25);
+}
+
+/* ─── LOADING ────────────────────────────────────── */
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  font-family: "DM Serif Display", serif;
+  font-size: 1.5rem;
+  color: var(--ink-3);
+  font-style: italic;
+}
+
+/* ─── RESPONSIVE ─────────────────────────────────── */
+@media (max-width: 640px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 40px 6% 36px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .controls {
+    flex-wrap: wrap;
+  }
+}

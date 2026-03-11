@@ -1,0 +1,12 @@
+.container{min-height:100vh;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,#f7f9ff,#fbf6ff);padding:24px}
+.card{width:420px;background:#fff;padding:28px;border-radius:14px;box-shadow:0 18px 40px rgba(10,10,20,0.06);text-align:left}
+.h2{margin:0 0 6px;color:#333}
+.p{color:#666;margin:0 0 14px}
+.form{display:flex;gap:10px;flex-direction:column}
+.input{padding:12px;border-radius:10px;border:1px solid #e6e6f0}
+.btn{padding:12px;border-radius:10px;border:none;background:#6b4eff;color:#fff;font-weight:700;cursor:pointer}
+.error{background:#fff1f0;border-left:4px solid #c41e3a;padding:10px;border-radius:8px;color:#a01730;margin-top:12px}
+.successBox{background:#f3fcf6;border-left:4px solid #2ea44f;padding:10px;border-radius:8px;margin-top:12px}
+.fakeLinkBox{background:#0f1724;color:#fff;padding:10px;border-radius:8px;margin-top:8px;font-size:13px;word-break:break-all}
+.small{font-size:12px;color:#555;margin-top:8px}
+.back{display:inline-block;margin-top:14px;color:#6b4eff;text-decoration:none}

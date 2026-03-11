@@ -1,0 +1,21 @@
+:root {
+    /* Whitw */
+    --WhiteSmoke: #F5F5F5;
+    --OldLace: #FDF5E6;
+    --PaperWhite: #F7FCFE;
+    --WhiteWash: #FEFFFC;
+    --FeatherWhite: #E7EAE5;
+    --White: #fff;
+
+    /* Red */
+    --Alarm: #EC0003;
+    --CarolinaReaper: #FF1500;
+    --Cayenne: #941100;
+
+    /* Black */
+    --Slate: #26282A;
+    --Leather: #0B0705;
+    --BlackGrain: #2C2C2A;
+    --NightShadow: #1C1C1C;
+
+}

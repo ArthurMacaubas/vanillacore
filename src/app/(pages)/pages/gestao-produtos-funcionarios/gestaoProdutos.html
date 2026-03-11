@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciamento de Pedidos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <div class="grupo-esquerdo">
+        <a href="#" class="logo">GellatoItali</a>
+        <nav class="nav-principal">
+            <a href="#" class="link-nav">Produtos</a>
+            <a href="#" class="link-nav">Sobre Nós</a>
+            <a href="#" class="link-nav">Novidades</a>
+            <a href="#" class="link-nav">Contato</a>
+        </nav>
+    </div>
+    <div class="acao-cabecalho">
+        <a href="#produtos-section" class="botao-cta">Peça Agora</a>
+    </div>
+</header>
+
+<main>
+    <table class="tabela-pedidos">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Cliente</th>
+                <th>Data</th>
+                <th>Status</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>001</td>
+                <td>João Silva</td>
+                <td>08/10/2025</td>
+                <td>Em andamento</td>
+                <td class="acoes">
+                    <button class="botao-editar">Editar</button>
+                    <button class="botao-excluir">Excluir</button>
+                    <button class="botao-detalhes" onclick="alternarDetalhes(this)">Ver Detalhes</button>
+                </td>
+            </tr>
+            <tr class="linha-detalhes">
+                <td colspan="5">
+                    <div class="conteudo-detalhes">
+                        <strong>Itens do pedido:</strong>
+                        <ul>
+                            <li>2x Sorvete Chocolate</li>
+                            <li>1x Casquinha Baunilha</li>
+                            <li>3x Milkshake Morango</li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>002</td>
+                <td>Maria Santos</td>
+                <td>07/10/2025</td>
+                <td>Concluído</td>
+                <td class="acoes">
+                    <button class="botao-editar">Editar</button>
+                    <button class="botao-excluir">Excluir</button>
+                    <button class="botao-detalhes" onclick="alternarDetalhes(this)">Ver Detalhes</button>
+                </td>
+            </tr>
+            <tr class="linha-detalhes">
+                <td colspan="5">
+                    <div class="conteudo-detalhes">
+                        <strong>Itens do pedido:</strong>
+                        <ul>
+                            <li>1x Sorvete Pistache</li>
+                            <li>2x Casquinha Chocolate</li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</main>
+
+      <footer>
+        <div class="footer-content">
+
+            <div class="footer-section navigation">
+                <h4>Navegação</h4>
+                <ul class="footer-links-list">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../sorvete/sorvete_teste.html">Sorvetes</a></li>
+                    <li><a href="../tela de picole/picole.html">Picoles</a></li>
+                    <li><a href="../tela acai/index.html">Açaís</a></li>
+                    <li><a>OUTRAS TELAS</a></li>
+                    <li><a href="../Tela do carrinho/carrinho.html">Carrinho</a></li>
+                    <li><a href="../Tela Monitoramento/index.html">Monitoramento</a></li>
+                    <li><a href="../Tela Pagamento/TelaDePagamento.html">Pagamento</a></li>
+                    <li><a href="../Tela Usuario/telaUsuario.html">Usuarios</a></li>
+                    <li><a href="../cadastro de produtos/Cadastro_de_Produtos.html">Cadastro de Produtos</a></li>
+                    <li><a href="../gestão de produtos funcionarios/gestaoProdutos.html">Gestão de Produtos</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section contact">
+                <h4>Fale Conosco</h4>
+                <ul class="footer-links-list">
+                    <li>Telefone: (00) 1234-5678</li>
+                    <li>Email: contato@gellatoitali.com</li>
+                    <li>Rua do Gelo, 123 - Gelato City</li>
+                </ul>
+            </div>
+
+            <div class="footer-section social">
+                <h4>Siga-nos</h4>
+                <p>Mantenha-se atualizado com nossas promoções!</p>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 GellatoItali. Todos os direitos reservados.</p>
+            <div class="policy-links">
+                <a href="#">Política de Privacidade</a>
+                <span>|</span>
+                <a href="#">Termos de Uso</a>
+            </div>
+        </div>
+    </footer>
+
+<script>
+function alternarDetalhes(botao) {
+    const linha = botao.closest('tr').nextElementSibling;
+    if (linha.style.display === 'table-row') {
+        linha.style.display = 'none';
+        botao.textContent = 'Ver Detalhes';
+    } else {
+        linha.style.display = 'table-row';
+        botao.textContent = 'Fechar Detalhes';
+    }
+}
+</script>
+
+
+
+</body>
+</html>
